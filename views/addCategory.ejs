@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+.navbar{
+            background-color: white;
+            border-radius: 30px;
+          }
+          .navbar ul
+          {
+            overflow: auto;
+        }
+        .navbar li{
+            float:left;
+            list-style: none; 
+            margin: 13px 20px;
+            
+        }
+        .navbar li a{
+            padding: 3px 3px;
+            text-decoration: none;
+            color: black;
+        }
+        .navbar li a:hover{
+            color: red
+        }
+        .search{
+            float: right;
+            color: black;
+            padding: 12px 75px;
+        }
+        .navbar input{
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 3px 17px;
+            width: 129px;
+        }
+        p {
+            color: SlateBlue;
+            margin-right: 150px;
+        }
+
+        </style>
+    <title>Category</title>
+</head>
+<body style ="background-color: lightblue ;">
+  <h1 style ="text-align: center;color: red; ;">Categories</h1>
+  <nav class="navbar">
+            <ul>
+                <li><a href="/search">Home</a></li>
+                <li><a href="/addCat/:id">AddCategory</a></li>
+            </ul>
+        </nav>
+        <br>
+         <p> ADD CATEGORY </p>
+
+ <form  action="" method="post">
+            <div class ="f">
+  <label >CategoryName</label><br>
+  <input type="text" name="category_name" pattern="[A-Za-z ]+" required><br>
+   
+  <p>select from the drop-down list:</p>
+  <div class ="f">
+
+  <label >ParentCategory</label>
+
+      <select name="category">
+        <option value="">Select Category</option>
+
+    
+        <% category.forEach(result => { %>
+            <option value="<%= result.category_name %>"><%= result.category_name %></option>
+          <% }); %>
+        
+      </select>
+      <br>
+    <br>
+      <input type="submit" value="Submit">
+
+
+
+    
+
+  </select>
+</form> 
+
+
+
+</body>
+</html>

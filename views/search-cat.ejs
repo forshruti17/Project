@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar {
+            background-color: white;
+            border-radius: 30px;
+        }
+        .navbar ul {
+            overflow: auto;
+        }
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin: 13px 20px;
+        }
+        .navbar li a {
+            padding: 3px 3px;
+            text-decoration: none;
+            color: black;
+        }
+        .navbar li a:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body style="background-color: beige;">
+    <div id="main-content">
+        <h2>All Records</h2>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/search">Home</a></li>
+                <li><a href="/addCat/:id">AddCategory</a></li>
+                <li><a href="/login">Log Out</a></li>
+            </ul>
+        </nav>
+        <br>
+        <form action="/search" method="GET">
+            <input type="text" name="term" placeholder="Search by Category Name">
+            <input type="submit" value="Search" style="background-color: greenyellow">
+        </form>
+        <table cellpadding="7px">
+            <thead>
+                <th>Id</th>
+                <th>Category Name</th>
+                <th>Parent Category</th>
+              
+            </thead>
+            <tbody>
+                <% if (Array.isArray(category)) { %>
+                <% category.forEach(function(item) { %>
+                    <tr>
+                        <td><%= item.id %></td>
+                        <td><%= item.category_name %></td>
+                        <td><%= item.pid %></td>
+                        <td>
+                            
+                            
+                        </td>
+                    </tr>
+                <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4">No categories found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
